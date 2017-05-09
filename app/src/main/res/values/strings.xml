@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Valuter</string>
 
+    <string name="date_button_title"><center>Курсы валют за\n{date}</center></string>
+
     <!--Errors message-->
     <string name="error_title">Ошибка</string>
     <string name="internet_work_error">Ошибка: Проверьте подключение к интернету.</string>

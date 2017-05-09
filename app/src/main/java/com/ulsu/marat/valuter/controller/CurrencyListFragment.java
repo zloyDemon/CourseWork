@@ -1,15 +1,9 @@
-package com.ulsu.marat.valuter.Controller;
+package com.ulsu.marat.valuter.controller;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.Fragment;
-import android.content.Context;
-import android.content.res.Resources;
 
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -25,8 +19,6 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
-import java.net.UnknownHostException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import retrofit2.Call;
@@ -39,15 +31,22 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 public class CurrencyListFragment extends Fragment {
 
 
+    @ViewById(R.id.date_button)
+    Button mDateButton;
+
     @Click(R.id.date_button)
     public void ShowDateClick() {
         showDatePickerDialog();
     }
 
+    Calendar calendar = Calendar.getInstance();
+
     @AfterViews
     public void bindViews() {
-
+        mDateButton.setText(getString(R.string.date_button_title).replace("{date}",
+                DateFormat(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH))));
     }
+
 
     private void Request(String date) {
 
@@ -93,14 +92,13 @@ public class CurrencyListFragment extends Fragment {
 
     private void showDatePickerDialog() {
 
-        Calendar calendar = Calendar.getInstance();
         DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), listener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
     }
 
     private String DateFormat(int year, int month, int day) {
-        String dayString = String.valueOf(day+1);
-        String monthString = String.valueOf(month);
+        String dayString = String.valueOf(day);
+        String monthString = String.valueOf(month+1);
 
         if (monthString.length() == 1) {
             monthString = "0" + monthString;
