@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Valuter</string>
+    <string name="app_name">Валютер</string>
 
     <string name="date_button_title"><center>Курсы валют за\n{date}</center></string>
 
