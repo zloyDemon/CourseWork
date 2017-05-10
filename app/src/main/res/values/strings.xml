@@ -2,6 +2,9 @@
     <string name="app_name">Валютер</string>
 
     <string name="date_button_title"><center>Курсы валют за\n{date}</center></string>
+    <string name="nominal_text">Номинал: {nominal} </string>
+
+    <string name="rubble_text">₽</string>
 
     <!--Errors message-->
     <string name="error_title">Ошибка</string>

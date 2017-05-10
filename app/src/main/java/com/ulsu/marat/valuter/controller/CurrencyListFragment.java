@@ -4,12 +4,14 @@ import android.app.DatePickerDialog;
 
 
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.DatePicker;
 
 import com.ulsu.marat.valuter.Model.CurrencyModel;
 import com.ulsu.marat.valuter.R;
+import com.ulsu.marat.valuter.controller.adapter.CurrencyAdapter;
 import com.ulsu.marat.valuter.network.CBRrequest;
 import com.ulsu.marat.valuter.utils.Consts;
 import com.ulsu.marat.valuter.utils.DialogUtils;
@@ -34,12 +36,16 @@ public class CurrencyListFragment extends Fragment {
     @ViewById(R.id.date_button)
     Button mDateButton;
 
+    @ViewById(R.id.currency_list)
+    RecyclerView currencyList;
+
     @Click(R.id.date_button)
     public void ShowDateClick() {
         showDatePickerDialog();
     }
 
     Calendar calendar = Calendar.getInstance();
+    CurrencyAdapter adapter;
 
     @AfterViews
     public void bindViews() {
@@ -66,6 +72,8 @@ public class CurrencyListFragment extends Fragment {
                     Log.d(Consts.TAG, "***" + "\n" + currency.getID() + "\n" + currency.getNumCode() +
                             "\n" + currency.getCharCode() + "\n" + currency.getNominal() +
                             "\n" + currency.getName() + "\n" + currency.getValue());
+                    adapter = new CurrencyAdapter(getActivity(),response.body().getCurrency());
+                    currencyList.setAdapter(adapter);
                 }
             }
 
@@ -86,6 +94,9 @@ public class CurrencyListFragment extends Fragment {
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
             if(view.isShown()) {
                 Request(DateFormat(year,month,dayOfMonth));
+                calendar.set(year,month,dayOfMonth);
+                mDateButton.setText(getString(R.string.date_button_title).replace("{date}",
+                        DateFormat(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH))));
             }
         }
     };
