@@ -19,6 +19,7 @@ import com.ulsu.marat.valuter.utils.DialogUtils;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.InstanceState;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.Calendar;
@@ -44,13 +45,16 @@ public class CurrencyListFragment extends Fragment {
         showDatePickerDialog();
     }
 
+    @InstanceState
     Calendar calendar = Calendar.getInstance();
+
     CurrencyAdapter adapter;
 
     @AfterViews
     public void bindViews() {
         mDateButton.setText(getString(R.string.date_button_title).replace("{date}",
                 DateFormat(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH))));
+        Request(DateFormat(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)));
     }
 
 
@@ -89,20 +93,21 @@ public class CurrencyListFragment extends Fragment {
             }
         });
     }
-    DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-            if(view.isShown()) {
-                Request(DateFormat(year,month,dayOfMonth));
-                calendar.set(year,month,dayOfMonth);
-                mDateButton.setText(getString(R.string.date_button_title).replace("{date}",
-                        DateFormat(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH))));
-            }
-        }
-    };
+
+
 
     private void showDatePickerDialog() {
-
+        DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                if(view.isShown()) {
+                    Request(DateFormat(year,month,dayOfMonth));
+                    calendar.set(year,month,dayOfMonth);
+                    mDateButton.setText(getString(R.string.date_button_title).replace("{date}",
+                            DateFormat(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH))));
+                }
+            }
+        };
         DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), listener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
     }

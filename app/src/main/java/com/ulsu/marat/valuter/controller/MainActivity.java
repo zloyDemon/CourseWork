@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 
 import com.ulsu.marat.valuter.R;
 import com.ulsu.marat.valuter.controller.adapter.ViewPagerAdapter;
@@ -33,24 +34,35 @@ public class MainActivity extends AppCompatActivity {
     @AfterViews
     public void bindViews() {
 
+        //Установка Шрифта
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/Geometria.otf")
                 .setFontAttrId(R.attr.fontPath)
                 .build());
 
         setSupportActionBar(toolbar);
+
+        //Устанавливаем фрагменты для табов
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         mViewPagerAdapter.addFragments(new CurrencyListFragment_(), "");
+        mViewPagerAdapter.addFragments(new CurrencyConverterFragment_(), "");
         mViewPagerAdapter.addFragments(new CurrencyConverterFragment_(), "");
 
         mViewPager.setAdapter(mViewPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
-        mTabLayout.getTabAt(0).setIcon(R.drawable.tab_list_icon);
-        mTabLayout.getTabAt(1).setIcon(R.drawable.tab_list_icon);
+        mTabLayout.getTabAt(0).setIcon(R.drawable.tab_currency_list_icon);
+        mTabLayout.getTabAt(1).setIcon(R.drawable.tab_converter_icon);
+        mTabLayout.getTabAt(2).setIcon(R.drawable.tab_currency_list_icon);
     }
 
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add("О приложении");
+        return super.onCreateOptionsMenu(menu);
     }
 }

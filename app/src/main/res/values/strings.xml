@@ -4,10 +4,18 @@
     <string name="date_button_title"><center>Курсы валют за\n{date}</center></string>
     <string name="nominal_text">Номинал: {nominal} </string>
 
+    <!--Фрагмент Конвертера-->
+    <string name="currency_convert_from">Перевести из</string>
+    <string name="currency_convert_to">Перевести в</string>
+    <string name="currency_convert_edit_text_hint">Введите значение</string>
+    <string name="currency_convert_convert_button">Перевести</string>
+
+    <!--Иконки валют-->
     <string name="rubble_text">₽</string>
 
     <!--Errors message-->
     <string name="error_title">Ошибка</string>
     <string name="internet_work_error">Ошибка: Проверьте подключение к интернету.</string>
     <string name="no_currency_data_error">Ошибка: Курсы валют за данную дату нет.</string>
+
 </resources>

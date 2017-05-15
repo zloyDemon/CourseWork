@@ -64,7 +64,7 @@ public class CurrencyModel {
 
         String getNameById(String id){
             for (CurrencyName currencyName : values()) {
-                if(currencyName.id_.contains(id)){
+                if(currencyName.id_.contains(id) || id.contains(currencyName.id_)){
                     return currencyName.name_;
                 }
             }
