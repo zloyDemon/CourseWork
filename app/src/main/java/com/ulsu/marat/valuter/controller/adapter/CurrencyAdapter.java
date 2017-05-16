@@ -115,7 +115,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
         holder.currencyName.setText(getNameByCode(currency.getID()));
         holder.currencyCharCode.setText(currency.getCharCode());
         holder.currencyNominal.setText(context.getString(R.string.nominal_text).replace("{nominal}",currency.getNominal()));
-        holder.currencyValue.setText(currency.getValue());
+        holder.currencyValue.setText(context.getString(R.string.ruble_icon).replace("{value}",currency.getValue()));
     }
 
     @Override

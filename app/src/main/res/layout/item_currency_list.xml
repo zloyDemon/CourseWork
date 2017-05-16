@@ -64,22 +64,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="51,3914"
-                tools:text="51,3914" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/currency_icon_text"
-                style="@style/TextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/russian_ruble" />
+                android:text="51,3914₽"
+                tools:text="51,3914₽" />
         </LinearLayout>
 
     </LinearLayout>

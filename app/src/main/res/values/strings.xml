@@ -3,6 +3,7 @@
 
     <string name="date_button_title"><center>Курсы валют за\n{date}</center></string>
     <string name="nominal_text">Номинал: {nominal} </string>
+    <string name="ruble_icon">{value}₽</string>
 
     <!--Фрагмент Конвертера-->
     <string name="currency_convert_from">Перевести из</string>
