@@ -46,13 +46,11 @@ public class MainActivity extends AppCompatActivity {
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         mViewPagerAdapter.addFragments(new CurrencyListFragment_(), "");
         mViewPagerAdapter.addFragments(new CurrencyConverterFragment_(), "");
-        mViewPagerAdapter.addFragments(new CurrencyConverterFragment_(), "");
 
         mViewPager.setAdapter(mViewPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.getTabAt(0).setIcon(R.drawable.tab_currency_list_icon);
         mTabLayout.getTabAt(1).setIcon(R.drawable.tab_converter_icon);
-        mTabLayout.getTabAt(2).setIcon(R.drawable.tab_currency_list_icon);
     }
 
     @Override

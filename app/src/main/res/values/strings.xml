@@ -11,7 +11,42 @@
     <string name="currency_convert_convert_button">Перевести</string>
 
     <!--Иконки валют-->
-    <string name="rubble_text">₽</string>
+    <string name="russian_ruble">₽</string>
+    <string name="australian_dollar">A$</string>
+    <string name="azerbaijan_manat">₼</string>
+    <string name="british_pound_sterling">£</string>
+    <string name="armenia_dram">֏</string>
+    <string name="belarussian_ruble">Br</string>
+    <string name="bulgarian_lev">лв</string>
+    <string name="brazil_real">R$</string>
+    <string name="hungarian_forint">Ft</string>
+    <string name="hong_kong_dollar">HK$</string>
+    <string name="danish_krone">kr</string>
+    <string name="us_dollar">$</string>
+    <string name="euro">€</string>
+    <string name="indian_rupee">₹</string>
+    <string name="iceland_krona">Íkr</string>
+    <string name="kazakhstan_tenge"></string>
+    <string name="canadian_dollar"></string>
+    <string name="kyrgyzstan_som"></string>
+    <string name="china_yuan"></string>
+    <string name="moldova_lei"></string>
+    <string name="norwegian_krone"></string>
+    <string name="polish_zloty"></string>
+    <string name="romanian_leu"></string>
+    <string name="sdr"></string>
+    <string name="singapore_dollar"></string>
+    <string name="tajikistan_ruble"></string>
+    <string name="turkish_lira"></string>
+    <string name="new_turkmenistan_manat"></string>
+    <string name="uzbekistan_sum"></string>
+    <string name="ukrainian_hryvnia"></string>
+    <string name="czech_koruna"></string>
+    <string name="swedish_krona"></string>
+    <string name="swiss_franc"></string>
+    <string name="s_african_rand"></string>
+    <string name="south_korean_won"></string>
+    <string name="japanese_yen"></string>
 
     <!--Errors message-->
     <string name="error_title">Ошибка</string>

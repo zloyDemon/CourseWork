@@ -7,9 +7,19 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-<style name="TextStyle">
-    <item name="android:textColor">@color/black_color</item>
-</style>
+
+    <style name="TextStyle">
+        <item name="android:textColor">@color/black_color</item>
+    </style>
+
+    <style name="TextStyleSub">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="TextStyleCharCode">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/black_color</item>
+    </style>
 
     <style name="TextStyleForResult">
         <item name="android:textColor">@color/colorPrimaryDark</item>
