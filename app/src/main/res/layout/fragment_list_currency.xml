@@ -6,20 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-        <Button
-            android:id="@+id/date_button"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:background="@drawable/date_button_selector"
-            android:text="@string/date_button_title" />
+    <Button
+        android:id="@+id/date_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/date_button_selector"
+        android:text="@string/date_button_title" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:padding="@dimen/in_cardview_padding" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/currency_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="LinearLayoutManager"
-            tools:listitem="@layout/item_currency_list" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/currency_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/item_currency_list" />
 </LinearLayout>

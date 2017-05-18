@@ -1,79 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="10dp">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/in_cardview_padding">
+        android:padding="10dp">
 
-        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-            android:id="@+id/from_spinner"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/currency_convert_from"
-            android:textColorHint="#05ab9a"
-            app:met_floatingLabel="normal" />
+            android:layout_height="match_parent">
 
-        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-            android:id="@+id/to_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:hint="@string/currency_convert_to"
-            android:textColorHint="#05ab9a"
-            app:met_floatingLabel="normal" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <EditText
+            <LinearLayout
+                android:id="@+id/progress"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/edit_text_background"
-                android:hint="@string/currency_convert_edit_text_hint"
-                android:inputType="numberDecimal"
-                android:padding="5dp" />
+                android:gravity="center"
+                android:visibility="invisible">
 
-            <Button
+                <ProgressBar
+                    android:id="@+id/bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="2"
-                android:background="@drawable/date_button_selector"
-                android:text="@string/currency_convert_convert_button" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:padding="@dimen/in_cardview_padding"
+                android:visibility="visible">
 
-        <TextView
-            style="@style/TextStyleForResult"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="@color/light_gray"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="45454334 £" />
+                <!--<com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner-->
+                <!--android:id="@+id/from_spinner"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:hint="@string/currency_convert_from"-->
+                <!--android:textColorHint="#05ab9a"-->
+                <!--app:met_floatingLabel="normal" />-->
 
+                <!--<com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner-->
+                <!--android:id="@+id/to_spinner"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:hint="@string/currency_convert_to"-->
+                <!--android:textColorHint="#05ab9a"-->
+                <!--app:met_floatingLabel="normal" />-->
+
+                <Spinner
+                    android:id="@+id/spinner_from"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="@string/currency_convert_edit_text_hint"
+                        android:inputType="numberDecimal"
+                        android:padding="5dp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/date_button_selector"
+                        android:text="@string/currency_convert_convert_button" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextStyleForResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/light_gray"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="45454334 £" />
+
+            </LinearLayout>
+
+        </FrameLayout>
     </LinearLayout>
-
-
-</LinearLayout></ScrollView>
+</ScrollView>
