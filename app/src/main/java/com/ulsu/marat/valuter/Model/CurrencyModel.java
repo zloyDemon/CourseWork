@@ -95,6 +95,7 @@ public class CurrencyModel {
         }
 
         public String getNominal() {
+
             return nominal;
         }
 
@@ -103,7 +104,9 @@ public class CurrencyModel {
         }
 
         public String getValue() {
-            return value;
+            String resValue = value;
+            resValue = resValue.replace(",",".");
+            return resValue;
         }
 
         public void setValue(String value) {
