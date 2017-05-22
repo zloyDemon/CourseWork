@@ -36,6 +36,7 @@ public enum CurrencyEnum {
     S_AFRICAN_RAND("R01810","Южноафриканских рэндов"),
     SOUTH_KOREAN_WON("R01815","Вон Республики Корея"),
     JAPANESE_YEN("R01820","Японских иен"),
+    RUBLE("R00000","Российский рубль"),
     NONE("000000","Нет данных");
 
     private String id_;

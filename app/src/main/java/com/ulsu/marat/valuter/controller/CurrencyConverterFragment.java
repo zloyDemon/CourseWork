@@ -52,15 +52,14 @@ public class CurrencyConverterFragment extends Fragment {
     @Click(R.id.convert_button)
     public void ConvertButtonClick(){
         String input = mInputCurrency.getText().toString();
-        if (!input.isEmpty()) {
-            BigDecimal decimal = new BigDecimal(input);
-            String result = converter.convertRubbleToDollar(decimal).toString();
-            mResultText.setText(getString(R.string.ruble_icon).replace("{value}",result));
-            Log.d("Currency", result);
+        if (input.isEmpty()) {
+            mInputCurrency.setError("Введите значение");
+            return;
         }
+        BigDecimal inputValue = new BigDecimal(input);
         String from = adapter.getItem(mSpinnerFrom.getSelectedItemPosition()).getID();
         String to = adapter.getItem(mSpinnerTo.getSelectedItemPosition()).getID();
-        Convert(from,to,input);
+        Convert(from,to,inputValue);
     }
 
     @AfterViews
@@ -85,10 +84,24 @@ public class CurrencyConverterFragment extends Fragment {
         }
     }
 
-    private void Convert(String convertFrom, String convertTo, String value){
+    private void Convert(String convertFrom, String convertTo, BigDecimal value){
+
         CurrencyEnum currencyEnum = CurrencyEnum.NONE;
         CurrencyEnum currencyFrom =  currencyEnum.getCurrencyById(convertFrom);
         CurrencyEnum currencyTo = currencyEnum.getCurrencyById(convertTo);
+        BigDecimal result = BigDecimal.ZERO;
+
+        switch (currencyFrom){
+            case US_DOLLAR:
+                switch (currencyTo){
+                    case BELARUSSIAN_RUBLE:
+                        result = converter.convertRubbleToDollar(value);
+                        break;
+                }
+                break;
+            default:result=BigDecimal.ZERO;
+        }
+        mResultText.setText(result.toString());
 
     }
 }

@@ -19,6 +19,11 @@ public class CurrencyConverter {
 
     public BigDecimal convertRubbleToDollar(BigDecimal rubble){
         BigDecimal dollar = getValueByCode(CurrencyEnum.US_DOLLAR);
+        return rubble.divide(dollar,4,BigDecimal.ROUND_HALF_DOWN);
+    }
+
+    public BigDecimal convertDollarToRubble(BigDecimal dollar){
+        BigDecimal rubble = getValueByCode(CurrencyEnum.US_DOLLAR);
         return rubble.multiply(dollar).setScale(4,BigDecimal.ROUND_HALF_DOWN);
     }
 

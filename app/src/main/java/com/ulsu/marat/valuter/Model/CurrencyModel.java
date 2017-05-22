@@ -70,6 +70,8 @@ public class CurrencyModel {
         @Element(name = "Value")
         String value;
 
+
+
         public String getNumCode() {
             return numCode;
         }
