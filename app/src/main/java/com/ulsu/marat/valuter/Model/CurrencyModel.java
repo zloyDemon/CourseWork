@@ -107,7 +107,7 @@ public class CurrencyModel {
 
         public String getValue() {
             String resValue = value;
-            resValue = resValue.replace(",",".");
+            resValue = resValue.replace(",",".").replace(" ","");
             return resValue;
         }
 

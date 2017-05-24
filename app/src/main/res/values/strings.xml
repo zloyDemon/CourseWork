@@ -53,5 +53,6 @@
     <string name="error_title">Ошибка</string>
     <string name="internet_work_error">Ошибка: Проверьте подключение к интернету.</string>
     <string name="no_currency_data_error">Ошибка: Курсы валют за данную дату нет.</string>
+    <string name="input_empty_error">Введите значение</string>
 
 </resources>

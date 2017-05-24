@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.ulsu.marat.valuter.Model.Currency;
 import com.ulsu.marat.valuter.Model.CurrencyEnum;
 import com.ulsu.marat.valuter.Model.CurrencyModel;
 import com.ulsu.marat.valuter.R;
@@ -22,9 +23,9 @@ import java.util.List;
 public class SpinnerCurrencyAdapter extends BaseAdapter {
 
     Context context;
-    List<CurrencyModel.Currency> currencies;
+    List<Currency> currencies;
 
-    public SpinnerCurrencyAdapter(Context context, List<CurrencyModel.Currency> currencies) {
+    public SpinnerCurrencyAdapter(Context context, List<Currency> currencies) {
         super();
 
         this.context = context;
@@ -37,7 +38,7 @@ public class SpinnerCurrencyAdapter extends BaseAdapter {
     }
 
     @Override
-    public CurrencyModel.Currency getItem(int position) {
+    public Currency getItem(int position) {
         return currencies.get(position);
     }
 

@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:background="@drawable/date_button_selector"
-        android:text="@string/date_button_title" />
+        android:text="@string/date_button_title"/>
 
     <ImageView
         android:layout_width="match_parent"

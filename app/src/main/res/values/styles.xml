@@ -10,14 +10,15 @@
 
     <style name="TextStyle">
         <item name="android:textColor">@color/black_color</item>
+        <item name="android:textSize">20dp</item>
     </style>
 
     <style name="TextStyleSub">
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">16dp</item>
     </style>
 
     <style name="TextStyleCharCode">
-        <item name="android:textSize">15dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">@color/black_color</item>
     </style>
 
