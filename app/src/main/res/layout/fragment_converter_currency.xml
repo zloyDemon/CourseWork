@@ -86,8 +86,7 @@
                     android:layout_weight="1"
                     android:background="@color/light_gray"
                     android:gravity="center"
-                    android:padding="5dp"
-                    android:text="45454334 £" />
+                    android:padding="5dp"/>
 
             </LinearLayout>
 

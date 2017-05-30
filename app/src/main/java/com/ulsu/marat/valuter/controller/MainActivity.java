@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements CurrencyListFragm
 
         //Установка Шрифта
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Geometria.otf")
+                .setDefaultFontPath("fonts/Roboto-Regular.otf")
                 .setFontAttrId(R.attr.fontPath)
                 .build());
 

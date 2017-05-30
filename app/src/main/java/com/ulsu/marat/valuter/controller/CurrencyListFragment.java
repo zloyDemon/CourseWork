@@ -38,7 +38,7 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 public class CurrencyListFragment extends Fragment {
 
     public interface OnCurrencyConverterFragment {
-        public void ListChange(List<CurrencyModel.Currency> list, boolean isGet);
+         void ListChange(List<CurrencyModel.Currency> list, boolean isGet);
     }
 
     @ViewById(R.id.date_button)
@@ -90,17 +90,10 @@ public class CurrencyListFragment extends Fragment {
         call.enqueue(new Callback<CurrencyModel>() {
             @Override
             public void onResponse(Call<CurrencyModel> call, Response<CurrencyModel> response) {
-                Log.d(Consts.TAG, "Дата " + response.body().getDate());
-                for (CurrencyModel.Currency currency : response.body().getCurrency()) {
-                    Log.d(Consts.TAG, "***" + "\n" + currency.getID() + "\n" + currency.getNumCode() +
-                            "\n" + currency.getCharCode() + "\n" + currency.getNominal() +
-                            "\n" + currency.getName() + "\n" + currency.getValue());
-                }
                 listener.ListChange(response.body().getCurrency(),true);
                 CurrencyListSingleton.get(getActivity()).setList(response.body().getCurrency());
                 adapter = new CurrencyAdapter(getActivity(), response.body().getCurrency());
                 currencyList.setAdapter(adapter);
-
             }
 
             @Override

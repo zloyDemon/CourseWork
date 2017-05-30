@@ -61,7 +61,7 @@ public class SpinnerCurrencyAdapter extends BaseAdapter {
         return view;
     }
 
-    private String getNameByCode(String code){
+    private String getNameByCode(String code) {
         CurrencyEnum name = CurrencyEnum.NONE;
         return name.getNameById(code);
     }

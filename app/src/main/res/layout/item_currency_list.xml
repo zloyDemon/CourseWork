@@ -1,78 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/cardview_margin"
-    android:orientation="vertical">
+    android:layout_height="76dp"
+    android:paddingTop="4dp">
 
-    <LinearLayout
+   <LinearLayout
+       android:id="@+id/avatar_layout"
+       android:layout_width="72dp"
+       android:layout_height="72dp"
+       android:orientation="vertical"
+       android:padding="16dp"
+       android:gravity="center">
+
+    <TextView
+        android:id="@+id/currency_charcode"
+        style="@style/TextStyleCharCode"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/circle"
+        tools:text="AMD" />
+   </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/in_cardview_padding">
+        android:orientation="vertical"
+        android:paddingRight="16dp"
+        android:id="@+id/linearLayout"
+        android:layout_toEndOf="@+id/avatar_layout"
+        android:layout_toLeftOf="@+id/currency_value"
+        android:layout_toRightOf="@+id/avatar_layout"
+        android:layout_toStartOf="@+id/currency_value">
 
-        <LinearLayout
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:orientation="vertical">
         <TextView
-            android:id="@+id/currency_charcode"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            style="@style/TextStyleCharCode"
-            tools:text="AUD"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
+            android:id="@+id/currency_name"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/item_cardview_element_margin"
-            android:layout_weight="2"
-            android:orientation="vertical">
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="Американский доллар" />
 
-            <TextView
-                android:id="@+id/currency_name"
-                style="@style/TextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Американский доллар" />
+        <TextView
+            android:id="@+id/currency_nominal"
+            style="@style/TextStyleSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="Номинал: 100" />
 
-            <TextView
-                android:id="@+id/currency_nominal"
-                style="@style/TextStyleSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Номинал: 100" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/currency_value"
-                style="@style/TextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text="51,3914₽"
-                tools:text="51,3914₽" />
-        </LinearLayout>
 
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/gray"
-        android:padding="@dimen/in_cardview_padding" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/avatar_layout"
+        android:layout_toEndOf="@+id/avatar_layout" />
+
+    <TextView
+        android:id="@+id/currency_value"
+        style="@style/TextStyleValue"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:paddingRight="16dp"
+        tools:text="51,3914 ₽" />
+
+</RelativeLayout>

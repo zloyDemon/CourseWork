@@ -16,15 +16,16 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     List<Fragment> fragments = new ArrayList<>();
     List<String> tabTitle = new ArrayList<>();
 
-    public ViewPagerAdapter(FragmentManager fragmentManager){
+    public ViewPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
 
     }
 
-    public void addFragments(Fragment fragment, String title){
+    public void addFragments(Fragment fragment, String title) {
         fragments.add(fragment);
         tabTitle.add(title);
     }
+
     @Override
     public Fragment getItem(int position) {
         return fragments.get(position);

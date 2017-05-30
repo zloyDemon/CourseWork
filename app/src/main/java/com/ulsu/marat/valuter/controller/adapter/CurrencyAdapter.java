@@ -1,6 +1,7 @@
 package com.ulsu.marat.valuter.controller.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.ulsu.marat.valuter.Model.CurrencyModel;
 import com.ulsu.marat.valuter.R;
 
 import java.util.List;
+import java.util.Random;
 
 public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHolder> {
 
@@ -56,7 +58,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
         holder.currencyName.setText(getNameByCode(currency.getID()));
         holder.currencyCharCode.setText(currency.getCharCode());
         holder.currencyNominal.setText(context.getString(R.string.nominal_text).replace("{nominal}",currency.getNominal()));
-        holder.currencyValue.setText(context.getString(R.string.ruble_icon).replace("{value}",currency.getValue()));
+        holder.currencyValue.setText(context.getString(R.string.russian_ruble_icon).replace("{value}",currency.getValue()));
     }
 
     @Override

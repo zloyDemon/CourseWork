@@ -90,15 +90,31 @@ public class CurrencyConverterFragment extends Fragment {
 
     public void listChange(final List<CurrencyModel.Currency> list, boolean isGet) {
         if (isGet && list != null) {
-            List<Currency> currencies = getCurrencyList(list);
+            List<Currency> currencies = getCurrencyListFirstFive(list);
             converter.setCurrencyList(currencies);
             initSpinnerList(currencies);
         }
     }
 
-    private List<Currency> getCurrencyList(List<CurrencyModel.Currency> list){
+    private List<Currency> getCurrencyList(List<CurrencyModel.Currency> list) {
         List<Currency> currencies = new ArrayList<>();
         for (CurrencyModel.Currency currency : list) {
+            currencies.add(new Currency(currency.getID(),
+                    currency.getNumCode(),
+                    currency.getCharCode(),
+                    Integer.parseInt(currency.getNominal()),
+                    currency.getName(),
+                    new BigDecimal(currency.getValue())));
+        }
+        currencies.add(new Currency(RUBLE.getId(), "032", "RUB", 1, RUBLE.getNameById(RUBLE.getId()), BigDecimal.ZERO));
+        return currencies;
+    }
+
+    //todo Временная реализация. Исправить!
+    private List<Currency> getCurrencyListFirstFive(List<CurrencyModel.Currency> list) {
+        List<Currency> currencies = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            CurrencyModel.Currency currency = list.get(i);
             currencies.add(new Currency(currency.getID(),
                     currency.getNumCode(),
                     currency.getCharCode(),
@@ -116,24 +132,25 @@ public class CurrencyConverterFragment extends Fragment {
         CurrencyEnum currencyFrom = currencyEnum.getCurrencyById(convertFrom);
         CurrencyEnum currencyTo = currencyEnum.getCurrencyById(convertTo);
         BigDecimal result = BigDecimal.ZERO;
+        String resultString = "";
         switch (currencyFrom) {
             case AUSTRALIAN_DOLLAR:
                 switch (currencyTo) {
                     case AUSTRALIAN_DOLLAR:
-                        Log.d(TAG,"AUSTRALIAN_DOLLAR - > AUSTRALIAN_DOLLAR");
+                        Log.d(TAG, "AUSTRALIAN_DOLLAR - > AUSTRALIAN_DOLLAR");
 
                         break;
 
                     case AZERBAIJAN_MANAT:
-                        Log.d(TAG,"AUSTRALIAN_DOLLAR - > AZERBAIJAN_MANAT");
+                        Log.d(TAG, "AUSTRALIAN_DOLLAR - > AZERBAIJAN_MANAT");
                         break;
 
                     case BRITISH_POUND_STERLING:
-                        Log.d(TAG,"AUSTRALIAN_DOLLAR - > BRITISH_POUND_STERLING");
+                        Log.d(TAG, "AUSTRALIAN_DOLLAR - > BRITISH_POUND_STERLING");
                         break;
 
                     case ARMENIA_DRAM:
-                        Log.d(TAG,"AUSTRALIAN_DOLLAR - > ARMENIA_DRAM");
+                        Log.d(TAG, "AUSTRALIAN_DOLLAR - > ARMENIA_DRAM");
                         break;
 
                     case BELARUSSIAN_RUBLE:
@@ -262,6 +279,7 @@ public class CurrencyConverterFragment extends Fragment {
 
                     case RUBLE:
                         result = converter.convertAustralianDollarToRubble(value);
+                        resultString = getString(R.string.russian_ruble_icon).replace("{value}", result.toString());
                         break;
                 }
                 break;
@@ -269,7 +287,7 @@ public class CurrencyConverterFragment extends Fragment {
             case AZERBAIJAN_MANAT:
                 switch (currencyTo) {
                     case AUSTRALIAN_DOLLAR:
-                        Log.d(TAG,"AZERBAIJAN_MANAT - > AUSTRALIAN_DOLLAR");
+                        Log.d(TAG, "AZERBAIJAN_MANAT - > AUSTRALIAN_DOLLAR");
                         break;
 
                     case AZERBAIJAN_MANAT:
@@ -409,7 +427,7 @@ public class CurrencyConverterFragment extends Fragment {
                         break;
 
                     case RUBLE:
-
+                        resultString = getString(R.string.russian_ruble_icon).replace("{value}", converter.convertAzerbaijanManatToRubble(value).toString());
                         break;
                 }
                 break;
@@ -557,7 +575,7 @@ public class CurrencyConverterFragment extends Fragment {
                         break;
 
                     case RUBLE:
-
+                        resultString = getString(R.string.russian_ruble_icon).replace("{value}", converter.convertBritishPoundSterlingToRubble(value).toString());
                         break;
                 }
                 break;
@@ -705,7 +723,7 @@ public class CurrencyConverterFragment extends Fragment {
                         break;
 
                     case RUBLE:
-
+                        resultString = getString(R.string.russian_ruble_icon).replace("{value}", converter.convertArmeniaDramToRubble(value).toString());
                         break;
                 }
                 break;
@@ -1741,7 +1759,7 @@ public class CurrencyConverterFragment extends Fragment {
                         break;
 
                     case RUBLE:
-
+                        resultString = getString(R.string.russian_ruble_icon).replace("{value}", converter.convertDollarToRubble(value).toString());
                         break;
                 }
                 break;
@@ -5301,19 +5319,19 @@ public class CurrencyConverterFragment extends Fragment {
             case RUBLE:
                 switch (currencyTo) {
                     case AUSTRALIAN_DOLLAR:
-                        result = converter.convertRubbleToAustralianDollar(value);
+                        resultString = getString(R.string.australian_dollar_icon).replace("{value}", converter.convertRubbleToAustralianDollar(value).toString());
                         break;
 
                     case AZERBAIJAN_MANAT:
-
+                        resultString = getString(R.string.azerbaijan_manat_icon).replace("{value}", converter.convertRubbleToAzerbaijanManat(value).toString());
                         break;
 
                     case BRITISH_POUND_STERLING:
-
+                        resultString = getString(R.string.british_pound_sterling_icon).replace("{value}", converter.convertRubbleToBritishPoundSterling(value).toString());
                         break;
 
                     case ARMENIA_DRAM:
-
+                        resultString = getString(R.string.armenia_dram_icon).replace("{value}", converter.convertRubbleToArmeniaDram(value).toString());
                         break;
 
                     case BELARUSSIAN_RUBLE:
@@ -5341,7 +5359,7 @@ public class CurrencyConverterFragment extends Fragment {
                         break;
 
                     case US_DOLLAR:
-
+                        resultString = getString(R.string.us_dollar_icon).replace("{value}", converter.convertRubbleToDollar(value).toString());
                         break;
 
                     case EURO:
@@ -5446,7 +5464,7 @@ public class CurrencyConverterFragment extends Fragment {
                 }
                 break;
         }
-        mResultText.setText(result.toString());
+        mResultText.setText(resultString);
     }
 }
 
