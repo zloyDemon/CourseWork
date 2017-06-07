@@ -3,4 +3,5 @@
     <dimen name="cardview_margin">2dp</dimen>
     <dimen name="in_cardview_padding">5dp</dimen>
     <dimen name="item_cardview_element_margin">5dp</dimen>
+    <dimen name="button_size">70dp</dimen>
 </resources>

@@ -25,30 +25,6 @@ public class CurrencyModel {
     @ElementList(inline = true)
     List<Currency> currency;
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCurrency(List<Currency> currency) {
-        this.currency = currency;
-    }
-
-    public List<Currency> getCurrency() {
-        return currency;
-    }
-
     @Root(name = "Valute")
     public static class Currency {
 
@@ -71,38 +47,20 @@ public class CurrencyModel {
         String value;
 
 
+        public String getName() {
+            return name;
+        }
 
         public String getNumCode() {
             return numCode;
-        }
-
-        public void setNumCode(String numCode) {
-            this.numCode = numCode;
-        }
-
-        public String getName() {
-           return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
         }
 
         public String getCharCode() {
             return charCode;
         }
 
-        public void setCharCode(String charCode) {
-            this.charCode = charCode;
-        }
-
         public String getNominal() {
-
             return nominal;
-        }
-
-        public void setNominal(String nominal) {
-            this.nominal = nominal;
         }
 
         public String getValue() {
@@ -111,16 +69,57 @@ public class CurrencyModel {
             return resValue;
         }
 
-        public void setValue(String value) {
-            this.value = value;
-        }
-
         public String getID() {
             return ID;
+        }
+
+        public void setNumCode(String numCode) {
+            this.numCode = numCode;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setCharCode(String charCode) {
+            this.charCode = charCode;
+        }
+
+        public void setNominal(String nominal) {
+            this.nominal = nominal;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
         }
 
         public void setID(String ID) {
             this.ID = ID;
         }
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Currency> getCurrency() {
+        return currency;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCurrency(List<Currency> currency) {
+        this.currency = currency;
+    }
+
 }
