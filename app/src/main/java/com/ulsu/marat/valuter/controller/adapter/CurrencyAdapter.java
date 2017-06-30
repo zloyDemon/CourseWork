@@ -67,7 +67,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
     }
 
     private String getNameByCode(String code){
-        CurrencyEnum name = CurrencyEnum.NONE;
+        CurrencyEnum name = CurrencyEnum.DANISH_KRONE;
         return name.getNameById(code);
     }
 }
